@@ -113,12 +113,16 @@ function fiferFilter(array, callback) {
                     if(dataMenu==='4'){
                     fiferFind(array,(elemento=> elemento>3))
                     }
-                }
+                else{
+                    if(dataMenu==='5'){
+                    fiferFindIndex(array,(elemento=> elemento===5))
+                    }
             }
+        }
         
         }
     }
-
+}
         function fiferMap2(elemento,callback){
             let Arraymap=[]
             for(let i=0;i<elemento.length;i++){
@@ -144,4 +148,16 @@ function fiferFilter(array, callback) {
         }
         }
         alert('el primer elemento que cumple con la condicion de ser mayor que 3 es '+ArrayFind)
+        }
+
+        function fiferFindIndex(elemento,callback){
+            let IndexFind=[]
+            for(let i=0;i<elemento.length;i++){
+                if(callback(array[i]) === true){
+                let result = i;
+                IndexFind.push(result)
+                break;
+        }
+        }
+        alert('el lugar donde se encuentra el elmento 5 es '+IndexFind)
         }

@@ -120,13 +120,13 @@ function fiferFilter(array, callback) {
             else{
                 if(dataMenu==='6'){
                 fiferContains(array,5,1)
-                }
-            }
-            }
-        
+                     }
+                    }
+                     }
+                     }
+                     }
+                    }
         }
-    }
-}
         function fiferMap2(elemento,callback){
             let Arraymap=[]
             for(let i=0;i<elemento.length;i++){

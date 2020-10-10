@@ -7,7 +7,7 @@ const users= [
     email: 'pedrofelipeortiz@gmail.com'
     },
     {
-      age : 60, 
+      age : 6, 
       name: 'maria',
       genero: 'mujer',
       email: 'mariaortiz@gmail.com'
@@ -35,6 +35,8 @@ const users= [
         email: 'juanaortiz@gmail.com'
             }
   ]
+
+  const array =[1,2,3,4,5,6,7];
   // console.log(Object.keys(users));
   // console.log(Object.getOwnPropertyNames(users));
 //   let findUsers= users.filter(function(users){
@@ -67,7 +69,7 @@ const users= [
             for(let j=0;j<Object.keys(elemento[i]).length;j++){
                 let propiedadesObjeto =Object.keys(elemento[i])
                 if(callback(propiedadesObjeto[j]) === true){
-                    resultArray.push(elemento[i].name)
+                    resultArray.push(JSON.parse(`${elemento[i]}.${recibo}`));
                 }
 
     }
@@ -81,7 +83,6 @@ function fiferFilter(array, callback) {
     let resultado
   
     for(i=0;i<array.length; i++){
-        // for(j=0;j<(Object.keys(array[i])).length; j++){
                 if(callback(array[i]) === true){
                     row= JSON.stringify(array[i])
                     ResultArray +=row
@@ -101,11 +102,33 @@ function fiferFilter(array, callback) {
             alert(dataMenu)
             if(dataMenu==='1'){
                 alert('ingresa al 1')
-                fiferFilter(users,(elemento=> elemento.age>10))
+                fiferFilter(users,(elemento=> elemento.age<30))
             }else{
                 if(dataMenu==='2'){
                     fiferMap((search(users)),(elemento=> elemento===recibo))
                 }
+                else{
+                    if(dataMenu==='3'){
+                    fiferMap2(array,(elemento=> elemento*8))
+                    }
+                }
             }
         
         }
+
+
+        function fiferMap2(elemento,callback){
+            let Arraymap=[]
+            for(let i=0;i<elemento.length;i++){
+                let result =callback(array[i]);
+                Arraymap.push(result)
+                
+        }
+        console.log(Arraymap)
+    }
+        // function operacioMatematica(array){
+        //    array=array +1;
+        //    return array
+        // }
+
+        

@@ -117,8 +117,12 @@ function fiferFilter(array, callback) {
                     if(dataMenu==='5'){
                     fiferFindIndex(array,(elemento=> elemento===5))
                     }
+            else{
+                if(dataMenu==='6'){
+                fiferContains(array,5,1)
+                }
             }
-        }
+            }
         
         }
     }
@@ -161,3 +165,17 @@ function fiferFilter(array, callback) {
         }
         alert('el lugar donde se encuentra el elmento 5 es '+IndexFind)
         }
+
+        function fiferContains(array,valor,desde){
+            result= false;
+            for(let i=desde-1;i<array.length;i++){
+                if(valor===array[i]){
+                    result=true;
+                }
+        } 
+        if(result===true){
+            alert('el elemento '+valor+' si esxiste en el arreglo')
+        } else{
+            alert('el elemento '+valor+' no esxiste en el arreglo')
+        }
+    }

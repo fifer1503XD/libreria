@@ -97,15 +97,16 @@ function fiferFilter(array, callback) {
         
 
         
-        function menuFunctions(){
-            const dataMenu = document.getElementById('menu').value
-            if(dataMenu==='1'){
-                fiferFilter(users,(elemento=> elemento.age<30))
-            }else{
-                if(dataMenu==='2'){
-                    fiferMap((search(users)),(elemento=> elemento===recibo))
-                }
-                else{
+    function menuFunctions(){
+      const dataMenu = document.getElementById('menu').value
+      if(dataMenu==='1'){
+        fiferFilter(users,(elemento=> elemento.age<30))
+        }
+      else{
+       if(dataMenu==='2'){
+       fiferMap((search(users)),(elemento=> elemento===recibo))
+        }
+         else{
                     if(dataMenu==='3'){
                     fiferMap2(array,(elemento=> elemento*8))
                     }
@@ -126,7 +127,7 @@ function fiferFilter(array, callback) {
                      }
                      }
                     }
-        }
+                }
         function fiferMap2(elemento,callback){
             let Arraymap=[]
             for(let i=0;i<elemento.length;i++){

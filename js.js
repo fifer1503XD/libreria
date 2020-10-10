@@ -69,12 +69,12 @@ const users= [
             for(let j=0;j<Object.keys(elemento[i]).length;j++){
                 let propiedadesObjeto =Object.keys(elemento[i])
                 if(callback(propiedadesObjeto[j]) === true){
-                    resultArray.push(JSON.parse(`${elemento[i]}.${recibo}`));
+                    resultArray.push(elemento[i].name);
                 }
-
+            
     }
         }
-        console.log('Resultado map '+resultArray)
+        alert('Resultado map '+resultArray)
 }
     
     
@@ -91,17 +91,15 @@ function fiferFilter(array, callback) {
             // resultado= JSON.parse(ResultArray);
             
     }
-    console.log(ResultArray)
-            console.log(resultado)  
+    alert(ResultArray)
+            
         }
         
 
         
         function menuFunctions(){
             const dataMenu = document.getElementById('menu').value
-            alert(dataMenu)
             if(dataMenu==='1'){
-                alert('ingresa al 1')
                 fiferFilter(users,(elemento=> elemento.age<30))
             }else{
                 if(dataMenu==='2'){
@@ -111,11 +109,15 @@ function fiferFilter(array, callback) {
                     if(dataMenu==='3'){
                     fiferMap2(array,(elemento=> elemento*8))
                     }
+                else{
+                    if(dataMenu==='4'){
+                    fiferFind(array,(elemento=> elemento>3))
+                    }
                 }
             }
         
         }
-
+    }
 
         function fiferMap2(elemento,callback){
             let Arraymap=[]
@@ -124,7 +126,7 @@ function fiferFilter(array, callback) {
                 Arraymap.push(result)
                 
         }
-        console.log(Arraymap)
+        alert('resultado array *8 '+Arraymap)
     }
         // function operacioMatematica(array){
         //    array=array +1;
@@ -132,3 +134,14 @@ function fiferFilter(array, callback) {
         // }
 
         
+        function fiferFind(elemento,callback){
+            let ArrayFind=[]
+            for(let i=0;i<elemento.length;i++){
+                if(callback(array[i]) === true){
+                let result = array[i];
+                ArrayFind.push(result)
+                break;
+        }
+        }
+        alert('el primer elemento que cumple con la condicion de ser mayor que 3 es '+ArrayFind)
+        }

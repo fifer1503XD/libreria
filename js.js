@@ -36,7 +36,20 @@ const users= [
             }
   ]
 
-  const array =[1,2,3,4,5,6,7];
+  const array =[14,17,48,45,48,45,4];
+
+  function writeArrays() {
+      let location = document.getElementById('arrays')
+      const array2= JSON.stringify(users)
+      let objects =`<h2> Array números </h2>
+                    ${array}
+                    <h2> Array Users </h2>
+                    ${array2} `
+     location.innerHTML=objects
+     
+      
+  }
+  writeArrays()
   // console.log(Object.keys(users));
   // console.log(Object.getOwnPropertyNames(users));
 //   let findUsers= users.filter(function(users){
@@ -101,33 +114,38 @@ function fiferFilter(array, callback) {
       const dataMenu = document.getElementById('menu').value
       if(dataMenu==='1'){
         fiferFilter(users,(elemento=> elemento.age<30))
-        }
-      else{
-       if(dataMenu==='2'){
-       fiferMap((search(users)),(elemento=> elemento===recibo))
-        }
-         else{
-                    if(dataMenu==='3'){
-                    fiferMap2(array,(elemento=> elemento*8))
-                    }
-                else{
+                        }
+        else{
+            if(dataMenu==='2'){
+            fiferMap((search(users)),(elemento=> elemento===recibo))
+                              }
+              else{
+                if(dataMenu==='3'){
+                fiferMap2(array,(elemento=> elemento*8))
+                                  }
+                  else{
                     if(dataMenu==='4'){
                     fiferFind(array,(elemento=> elemento>3))
-                    }
-                else{
-                    if(dataMenu==='5'){
-                    fiferFindIndex(array,(elemento=> elemento===5))
-                    }
-            else{
-                if(dataMenu==='6'){
-                fiferContains(array,5,1)
-                     }
-                    }
-                     }
-                     }
-                     }
-                    }
-                }
+                                      }
+                      else{
+                        if(dataMenu==='5'){
+                        fiferFindIndex(array,(elemento=> elemento===4))
+                                          }
+                        else{
+                          if(dataMenu==='6'){
+                          fiferContains(array,3,1)
+                                            }
+                            else{
+                             if(dataMenu==='7'){
+                             fiferWhithout(array,(elemento=> elemento===48))
+                                               }
+                                }
+                            }
+                          }
+                       }
+                 }
+            }
+        }
         function fiferMap2(elemento,callback){
             let Arraymap=[]
             for(let i=0;i<elemento.length;i++){
@@ -146,8 +164,8 @@ function fiferFilter(array, callback) {
         function fiferFind(elemento,callback){
             let ArrayFind=[]
             for(let i=0;i<elemento.length;i++){
-                if(callback(array[i]) === true){
-                let result = array[i];
+                if(callback(elemento[i]) === true){
+                let result = elemento[i];
                 ArrayFind.push(result)
                 break;
         }
@@ -157,16 +175,20 @@ function fiferFilter(array, callback) {
 
         function fiferFindIndex(elemento,callback){
             let IndexFind=[]
+            let noexist=0;
             for(let i=0;i<elemento.length;i++){
                 if(callback(array[i]) === true){
                 let result = i;
                 IndexFind.push(result)
-                break;
+                noexist=1;
+                break;}
         }
+        if(noexist===1){
+            alert('el lugar donde se encuentra el elemento  es '+IndexFind)
+        }else{
+            alert('el elemento no existe en el arreglo')
         }
-        alert('el lugar donde se encuentra el elmento 5 es '+IndexFind)
-        }
-
+    }
         function fiferContains(array,valor,desde){
             result= false;
             for(let i=desde-1;i<array.length;i++){
@@ -179,4 +201,35 @@ function fiferFilter(array, callback) {
         } else{
             alert('el elemento '+valor+' no esxiste en el arreglo')
         }
-    }
+        }
+        let propiedad='name'
+        function fiferPluck(elemento,propiedad){
+            let resultArray=[]
+            for(let i=0;i<elemento.length;i++){
+                for(let j=0;j<Object.keys(elemento[i]).length;j++){
+                    let propiedadesObjeto =Object.keys(elemento[i])
+                    if(propiedadesObjeto[j]=== propiedad){
+                        alert('entro al if')
+                        let result=resultArray.push(`${elemento[i]}.${propiedad}`);
+                        console.log('elemento con propiedad'+`${elemento[i]}.${propiedad}`)
+                    }
+                
+        }
+            }console.log(resultArray)
+
+        }
+
+        fiferPluck(users,(elemento=> elemento===propiedad),propiedad)
+
+        function fiferWhithout(elemento,callback){
+            let ArrayWhithout=elemento
+            for(let i=0;i<elemento.length;i++){
+                if(callback(elemento[i]) === true){
+                    console.log(elemento[i])
+                    let j=i+1
+                ArrayWhithout.splice(i,1)
+                                                  }
+                                             }
+        alert('el nuevo array es '+ArrayWhithout)
+        }
+       

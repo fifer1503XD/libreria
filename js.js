@@ -1,4 +1,4 @@
-
+let recibo='name'
 const users= [
     {
     age : 49, 
@@ -35,8 +35,29 @@ const users= [
         email: 'juanaortiz@gmail.com'
             }
   ]
+  let array=readarray()
+  alert('oo'+array[1])
+  let arraynum=[1,2,3]
+  console.log(typeof arraynum)
+  writeArrays()
+function readarray() {
+let c=0;
+var tamaño = prompt("indica el tamaño del arreglo");
+ size=parseInt(tamaño);
+ let arrayRead=[];
+     for( let i=0; i<size ;i++){
+         var num = prompt("indica el numero en la posicion "+i);
+         c=parseInt(num);
+         alert(typeof c)
+         arrayRead.push(c);
+        
+     }
+     console.log('tipo'+typeof arrayRead[0])
+     return arrayRead    
+}
 
-  const array =[14,17,48,45,48,45,4];
+
+
 
   function writeArrays() {
       let location = document.getElementById('arrays')
@@ -49,7 +70,7 @@ const users= [
      
       
   }
-  writeArrays()
+  
   // console.log(Object.keys(users));
   // console.log(Object.getOwnPropertyNames(users));
 //   let findUsers= users.filter(function(users){
@@ -59,7 +80,7 @@ const users= [
   // let row =  findUsers.map(({email})=> email)
   //     console.log(row)
 
-  let recibo='name'
+
     
       function search(elemento){
           
@@ -111,6 +132,7 @@ function fiferFilter(array, callback) {
 
         
     function menuFunctions(){
+      
       const dataMenu = document.getElementById('menu').value
       if(dataMenu==='1'){
         fiferFilter(users,(elemento=> elemento.age<30))
@@ -129,7 +151,7 @@ function fiferFilter(array, callback) {
                                       }
                       else{
                         if(dataMenu==='5'){
-                        fiferFindIndex(array,(elemento=> elemento===4))
+                        fiferFindIndex(array,(elemento=> elemento===5))
                                           }
                         else{
                           if(dataMenu==='6'){
@@ -184,7 +206,7 @@ function fiferFilter(array, callback) {
                 break;}
         }
         if(noexist===1){
-            alert('el lugar donde se encuentra el elemento  es '+IndexFind)
+            alert('la posición dentro del arreglo  donde se encuentra el elemento  es '+IndexFind)
         }else{
             alert('el elemento no existe en el arreglo')
         }

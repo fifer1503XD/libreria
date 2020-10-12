@@ -116,7 +116,6 @@ function readPosition() {
         
     function menuFunctions(){
       const dataMenu = document.getElementById('menu').value
-      const operacionmenu=document.getElementById('valor').value
       if(dataMenu==='1'){
         let propiedad=readPropiedad();
         fiferFilter(array,(elemento=> elemento.age<propiedad))

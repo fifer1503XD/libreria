@@ -85,19 +85,19 @@ for(let i=0;i<array.length; i++){
     }
     console.log(ResultArray)
 }
-search(users)
-fiferMap(users,search)
-  
-const obtenerCiudadesPobladas = array => array.filter(({ age }) => age >= 1);
 
-const ciudadesPobladas = obtenerCiudadesPobladas(users);
-console.log(ciudadesPobladas)
+// const obtenerCiudadesPobladas = array => array.filter(({ age }) => age >= 1);
 
-const obtenerNombreDeCiudadesPobladas = array => array.map(( {name} ) => name);
-// ciudadesPobladas es el resultado de nuestro ejemplo anterior donde usamos .filter
-const nombreDeCiudadesPobladas = obtenerNombreDeCiudadesPobladas(ciudadesPobladas);
-console.log(nombreDeCiudadesPobladas)
+// const ciudadesPobladas = obtenerCiudadesPobladas(users);
+// console.log(ciudadesPobladas)
 
+// const obtenerNombreDeCiudadesPobladas = array => array.map(( {name} ) => name);
+// // ciudadesPobladas es el resultado de nuestro ejemplo anterior donde usamos .filter
+// const nombreDeCiudadesPobladas = obtenerNombreDeCiudadesPobladas(ciudadesPobladas);
+// console.log(nombreDeCiudadesPobladas)
+
+let pruebamap= ciudades.map(( {name} ) => name);
+alert(pruebamap)
 
 function fiferMap(array, callback) {
   let ResultArray=[];

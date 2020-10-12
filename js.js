@@ -1,7 +1,7 @@
 
 const users= [
     {
-    age : 49, 
+    age : 19, 
     name: 'felipe',
     genero: 'hombre',
     email: 'pedrofelipeortiz@gmail.com'
@@ -13,24 +13,24 @@ const users= [
       email: 'mariaortiz@gmail.com'
       },
       {
-        age : 60, 
+        age : 30, 
         name: 'josefa',
         genero: 'mujer',
         email: 'mariaortiz@gmail.com'
         },
         {
-            age : 60, 
+            age : 25, 
             name: 'ana',
             genero: 'mujer',
             email: 'mariaortiz@gmail.com'
             },
       {
-        age : 60, 
+        age : 40, 
         genero: 'hombre',
         email: 'mariaortiz@gmail.com'
         },
         {
-        age : 60, 
+        age : 10, 
         genero: 'mujer',
         email: 'juanaortiz@gmail.com'
             }
@@ -53,8 +53,12 @@ var tamaño = prompt("indica el tamaño del arreglo");
 }
 
 function readPropiedad() {
-    let readPropiedad = prompt("indica la propiedad a buscar en el pluck");
+    let readPropiedad = prompt("indica el valor a trabajar con la función");
     return readPropiedad;
+}
+function readPosition() {
+    let readPosition = prompt("indica el valor de la posicion desde la cual se empieza la busqueda");
+    return readPosition;
 }
 
 
@@ -83,88 +87,64 @@ function readPropiedad() {
 
     
       function search(elemento){
-          
           let resultArray=[]
-         for(let i=0;i<elemento.length;i++){
+        for(let i=0;i<elemento.length;i++){
         for(let j=0;j<Object.keys(elemento[i]).length;j++){
-            let propiedadesObjeto =Object.keys(elemento[i])
-         if(recibo===propiedadesObjeto[j]){
-            resultArray.push(elemento[i])
-                       ;}
-            }
+        let propiedadesObjeto =Object.keys(elemento[i])
+        if(recibo===propiedadesObjeto[j]){
+        resultArray.push(elemento[i]);   }
+                }
       }
       return resultArray;
       
     }  
 
-    function fiferMap(elemento,callback){
-        
-        let resultArray=[]
-        for(let i=0;i<elemento.length;i++){
-           
-            for(let j=0;j<Object.keys(elemento[i]).length;j++){
-                let propiedadesObjeto =Object.keys(elemento[i])
-                if(callback(propiedadesObjeto[j])===true){
-                    
-
-                    resultArray.push(elemento[i]);
-                    
-                }
-  
-    alert(resultArray)
-    return resultArray;
+    
+    function fiferFilter(array, callback) {
+        let ResultArray=[];
+        let resultado
+        for(i=0;i<array.length; i++){
+            if(callback(array[i]) === true){
+            row= JSON.stringify(array[i])
+            ResultArray +=row
             }
         }
-
-}
-    
-    
-function fiferFilter(array, callback) {
-    let ResultArray=[];
-    let resultado
-  
-    for(i=0;i<array.length; i++){
-                if(callback(array[i]) === true){
-                    row= JSON.stringify(array[i])
-                    ResultArray +=row
-            }
-            
-            // resultado= JSON.parse(ResultArray);
-            
+        alert(ResultArray)
     }
-    alert(ResultArray)
-            
-        }
         
 
         
     function menuFunctions(){
-      
       const dataMenu = document.getElementById('menu').value
+      const operacionmenu=document.getElementById('valor').value
       if(dataMenu==='1'){
-        fiferFilter(users,(elemento=> elemento.age<30))
-                        }
+        let propiedad=readPropiedad();
+        fiferFilter(array,(elemento=> elemento.age<propiedad))
+        }
         else{
             if(dataMenu==='2'){
-                let propiedad=readPropiedad();
-            fiferMap(users,(elemento => elemento===propiedad))
+            fiferForeach(users,(elemento => alert(JSON.stringify(elemento))))
                               }
               else{
                 if(dataMenu==='3'){
                     let propiedad=readPropiedad();
-                fiferMap2(array,(elemento=> elemento`${operacionmenu}`parseInt(propiedad)))
+                fiferMap(array,(elemento=> elemento*parseInt(propiedad)))
                                   }
                   else{
                     if(dataMenu==='4'){
-                    fiferFind(array,(elemento=> elemento>3))
+                        let propiedad=readPropiedad();
+                    fiferFind(array,(elemento=> elemento>propiedad))
                                       }
                       else{
                         if(dataMenu==='5'){
-                        fiferFindIndex(array,(elemento=> elemento===5))
+                            let propiedad=readPropiedad();
+                        fiferFindIndex(array,(elemento=> elemento===propiedad))
                                           }
                         else{
                           if(dataMenu==='6'){
-                          fiferContains(array,3,1)
+                            let propiedad=readPropiedad();
+                            let fromPosition=readPosition();
+                          fiferContains(array,propiedad,fromPosition)
                                             }
                             else{
                              if(dataMenu==='7'){
@@ -177,40 +157,47 @@ function fiferFilter(array, callback) {
                                         let propiedad=readPropiedad();
                                         fiferPluck(users,elemento=>elemento===propiedad,propiedad)
                                         
-                                                      }
-                                       }
-                                    }       
-                            }}
-                          }
-                       }
+                                    }
+                                }
+                             }
+                           }
+                         }
+                        }
+                    }
                  }
             }
         
-        function fiferMap2(elemento,callback){
+        function fiferForeach(elemento,callback) {
+            for(let i=0;i<elemento.length;i++){
+               callback(elemento[i]);
+                
+                }
+            } 
+
+        function fiferMap(elemento,callback){
             let Arraymap=[]
             for(let i=0;i<elemento.length;i++){
                 let result =callback(array[i]);
-                Arraymap.push(result)
-                
-        }
-        alert('resultado array *8 '+Arraymap)
-    }
-        // function operacioMatematica(array){
-        //    array=array +1;
-        //    return array
-        // }
-
-        
+                Arraymap.push(result)    
+            }
+          alert('resultado array *  el valor indicado es '+Arraymap)
+       }
         function fiferFind(elemento,callback){
-            let ArrayFind=[]
+            let ArrayFind=[];
+            let c=0;
             for(let i=0;i<elemento.length;i++){
                 if(callback(elemento[i]) === true){
                 let result = elemento[i];
                 ArrayFind.push(result)
                 break;
-        }
-        }
-        alert('el primer elemento que cumple con la condicion de ser mayor que 3 es '+ArrayFind)
+                }
+            }
+            if(c===1){
+            alert('el primer elemento que cumple con la condicion de ser mayor que el valor ingresado es '+ArrayFind)
+            }   
+            else{
+            alert('ningun elemento es valido en la busqueda.')
+            }
         }
 
         function fiferFindIndex(elemento,callback){
@@ -222,55 +209,52 @@ function fiferFilter(array, callback) {
                 IndexFind.push(result)
                 noexist=1;
                 break;}
-        }
-        if(noexist===1){
+            }
+            if(noexist===1){
             alert('la posición dentro del arreglo  donde se encuentra el elemento  es '+IndexFind)
-        }else{
+            }
+            else{
             alert('el elemento no existe en el arreglo')
+            }
         }
-    }
+        
         function fiferContains(array,valor,desde){
             result= false;
-            for(let i=desde-1;i<array.length;i++){
+            for(let i=desde;i<array.length;i++){
                 if(valor===array[i]){
                     result=true;
                 }
-        } 
-        if(result===true){
-            alert('el elemento '+valor+' si esxiste en el arreglo')
-        } else{
-            alert('el elemento '+valor+' no esxiste en el arreglo')
-        }
+            } 
+            if(result===true){
+            alert('el elemento '+valor+' si existe en el arreglo')
+            } 
+            else{
+            alert('el elemento '+valor+' no existe en el arreglo')
+            }
         }
 
         function fiferPluck(elemento,callback,propiedad){
             let resultArray=[]
             for(let i=0;i<elemento.length;i++){
-               
                 for(let j=0;j<Object.keys(elemento[i]).length;j++){
                     let propiedadesObjeto =Object.keys(elemento[i])
                     if(callback(propiedadesObjeto[j])===true){
                     resultArray.push(elemento[i][propiedad]);
-                    }
-                        
-                    }
-                
-        }     alert('el array resultado es'+resultArray)
+                    }  
+                }
+            }     
+            alert('el array resultado es'+resultArray)
         }
-      
-
-    
-     
-
+ 
         function fiferWhithout(elemento,callback){
             let ArrayWhithout=elemento
             for(let i=0;i<elemento.length;i++){
                 if(callback(elemento[i]) === true){
                     console.log(elemento[i])
                     let j=i+1
-                ArrayWhithout.splice(i,1)
-                                                  }
-                                             }
-        alert('el nuevo array es '+ArrayWhithout)
+                    ArrayWhithout.splice(i,1)
+                }
+            }
+            alert('el nuevo array es '+ArrayWhithout)
         }
        

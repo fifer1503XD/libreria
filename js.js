@@ -191,7 +191,6 @@ function readPosition() {
             let c=0;
             for(let i=0;i<elemento.length;i++){
                 if(callback(elemento[i]) === true){
-                    alert('ingresa al if')
                     c=1;
                 let result = elemento[i];
                 ArrayFind.push(result)
@@ -241,7 +240,6 @@ function readPosition() {
 
         function fiferPluck(elemento,callback,propiedad){
             let resultArray=[]
-            alert(propiedad)
             for(let i=0;i<elemento.length;i++){
                 for(let j=0;j<Object.keys(elemento[i]).length;j++){
                     let propiedadesObjeto =Object.keys(elemento[i])

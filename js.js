@@ -156,12 +156,10 @@ function readPosition() {
                              fiferWithout(array,values)
                              
                             }
-                                               
-                               
                                 else{
                                     if(dataMenu==='8'){
                                         let propiedad=readPropiedad();
-                                        fiferPluck(users,elemento=>elemento===propiedad)
+                                        fiferPluck(users,elemento=>elemento===propiedad,propiedad)
                                         
                                     }
                                 }
@@ -243,11 +241,14 @@ function readPosition() {
 
         function fiferPluck(elemento,callback,propiedad){
             let resultArray=[]
+            alert(propiedad)
             for(let i=0;i<elemento.length;i++){
                 for(let j=0;j<Object.keys(elemento[i]).length;j++){
                     let propiedadesObjeto =Object.keys(elemento[i])
                     if(callback(propiedadesObjeto[j])===true){
                     resultArray.push(elemento[i][propiedad]);
+                    console.log(elemento[i][propiedad])
+                    console.log(propiedad)
                     }  
                 }
             }     

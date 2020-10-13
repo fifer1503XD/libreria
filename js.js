@@ -1,7 +1,7 @@
 Array.prototype.fiferForeach=fiferForeach
 Array.prototype.fiferFilter=fiferFilter
 Array.prototype.fiferMap=fiferMap
-Array.prototype.fiferWhithout=fiferWhithout
+Array.prototype.fiferWithout=fiferWithout
 Array.prototype.fiferPluck=fiferPluck
 Array.prototype.fiferFind=fiferFind
 Array.prototype.fiferFindIndex=fiferFindIndex
@@ -152,14 +152,16 @@ function readPosition() {
                                             }
                             else{
                              if(dataMenu==='7'){
-                                let propiedad=readPropiedad();
-                             fiferWhithout(array,(elemento=> elemento===propiedad))
-                                               }
-                                
+                              let values=readarray();
+                             fiferWithout(array,values)
+                             
+                            }
+                                               
+                               
                                 else{
                                     if(dataMenu==='8'){
                                         let propiedad=readPropiedad();
-                                        fiferPluck(users,elemento=>elemento===propiedad,propiedad)
+                                        fiferPluck(users,elemento=>elemento===propiedad)
                                         
                                     }
                                 }
@@ -184,7 +186,7 @@ function readPosition() {
                 let result =callback(array[i]);
                 Arraymap.push(result)    
             }
-          alert('resultado array *  el valor indicado es '+Arraymap)
+          alert('resultado array del callback  es '+Arraymap)
        }
         function fiferFind(elemento,callback){
             let ArrayFind=[];
@@ -252,15 +254,24 @@ function readPosition() {
             alert('el array resultado es'+resultArray)
         }
  
-        function fiferWhithout(elemento,callback){
+        function fiferWithout(elemento,arrayvalores){
             let ArrayWhithout=elemento
             for(let i=0;i<elemento.length;i++){
-                if(callback(elemento[i]) === true){
+                for(let j=0; j<arrayvalores.length;j++){
+                if(callbackw(elemento[i],arrayvalores[j]) === true){
                     console.log(elemento[i])
-                    let j=i+1
                     ArrayWhithout.splice(i,1)
+                    j=-1;
+                    i=-1;
                 }
             }
-            alert('el nuevo array es '+ArrayWhithout)
         }
-       
+        alert('array resultado es '+ArrayWhithout)
+            ArrayWhithout=elemento
+            
+     }
+     function callbackw(elemento, valorw){
+        if(elemento===valorw){
+            return true
+        }
+    }

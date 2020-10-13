@@ -199,7 +199,7 @@ function readPosition() {
                 }
             }
             if(c===1){
-            alert('el primer elemento que cumple con la condicion de ser mayor que el valor ingresado es '+ArrayFind)
+            alert('el primer elemento que cumple con la condicion ingresada es '+ArrayFind)
             }   
             else{
             alert('ningun elemento es valido en la busqueda.')

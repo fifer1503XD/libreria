@@ -1,3 +1,11 @@
+Array.prototype.fiferForeach=fiferForeach
+Array.prototype.fiferFilter=fiferFilter
+Array.prototype.fiferMap=fiferMap
+Array.prototype.fiferWhithout=fiferWhithout
+Array.prototype.fiferPluck=fiferPluck
+Array.prototype.fiferFind=fiferFind
+Array.prototype.fiferFindIndex=fiferFindIndex
+Array.prototype.fiferContains=fiferContains
 
 const users= [
     {
@@ -100,25 +108,22 @@ function readPosition() {
     }  
 
     
-    function fiferFilter(array, callback) {
+    function fiferFilter(array,callback) {
         let ResultArray=[];
         let resultado
         for(i=0;i<array.length; i++){
-            if(callback(array[i]) === true){
+            if(callback(array[i])===true){
             row= JSON.stringify(array[i])
             ResultArray +=row
             }
         }
         alert(ResultArray)
     }
-        
-
-        
     function menuFunctions(){
       const dataMenu = document.getElementById('menu').value
       if(dataMenu==='1'){
         let propiedad=readPropiedad();
-        fiferFilter(array,(elemento=> elemento.age<propiedad))
+        fiferFilter(users,(elemento=> elemento.age<propiedad))
         }
         else{
             if(dataMenu==='2'){
@@ -186,6 +191,8 @@ function readPosition() {
             let c=0;
             for(let i=0;i<elemento.length;i++){
                 if(callback(elemento[i]) === true){
+                    alert('ingresa al if')
+                    c=1;
                 let result = elemento[i];
                 ArrayFind.push(result)
                 break;
